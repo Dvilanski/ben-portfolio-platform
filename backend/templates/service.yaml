@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.nameOverride }}-frontend
+  name: {{ .Values.nameOverride }}-backend
 spec:
   selector:
-    app: {{ .Values.nameOverride }}-frontend
+    app: {{ .Values.nameOverride }}-backend
   type: {{ .Values.service.type }}
   ports:
     - name: http

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "todo-app"
+  labels:
+    {{ .Values.nameOverride }}-backend
+spec:
+  replicas: {{ .Values.replicaCount}}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name}}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Release.Name }}
+          image: {{ .Values.image.repository }}
+          ports:
+            - containerPort: 80
+          volumeMounts:
+          - name: nginx-volume
+            mountPath: /etc/nginx/nginx.conf
+            subPath: nginx.conf
+            readOnly: true
+      volumes:
+      # https://medium.com/swlh/quick-fix-mounting-a-configmap-to-an-existing-volume-in-kubernetes-using-rancher-d01c472a10ad
+      - configMap:
+          name: nginx-conf
+          items:
+          - key: nginx.conf
+            path: nginx.conf
+        name: nginx-volume
+          
