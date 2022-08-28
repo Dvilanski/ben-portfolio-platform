@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: "todo-app"
   labels:
-    {{ .Values.nameOverride }}-backend
+    app: ben-todo-backend
 spec:
   replicas: {{ .Values.replicaCount}}
   selector:

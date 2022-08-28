@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "todo-app"
+  name: ben-todo-frontend
   labels:
-    app: {{ .Release.Name }}
+    app: ben-todo-frontend
 spec:
   replicas: {{ .Values.replicaCount}}
   selector:

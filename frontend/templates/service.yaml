@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.nameOverride }}-frontend
+  name: ben-todo-frontend
 spec:
   selector:
-    app: {{ .Values.nameOverride }}-frontend
+    app: ben-todo-frontend
   type: {{ .Values.service.type }}
   ports:
     - name: http
