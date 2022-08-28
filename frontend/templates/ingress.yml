@@ -13,7 +13,7 @@ spec:
   tls:
     - hosts:
         - ben-todo.ddns.net
-      secretName: "secret_name"
+      secretName: "secret-name-front"
   rules:
     - host: ben-todo.ddns.net
       http:
