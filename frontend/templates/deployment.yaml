@@ -25,7 +25,7 @@ spec:
             subPath: nginx.conf
             readOnly: true
       volumes:
-      # https://medium.com/swlh/quick-fix-mounting-a-configmap-to-an-existing-volume-in-kubernetes-using-rancher-d01c472a10ad
+      # https://medium.com/swlh/quick-fix-mounting-a-configmap-to-an-existing-volume-in-kubernetes-using-rancher-d01c472a10ad#
       - configMap:
           name: nginx-conf
           items:
