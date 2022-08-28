@@ -4,7 +4,7 @@ metadata:
   name: ben-todo-frontend
 spec:
   selector:
-    app: ben-todo-frontend
+    app: todo-frontend
   type: {{ .Values.service.type }}
   ports:
     - name: http
