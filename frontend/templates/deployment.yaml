@@ -8,14 +8,14 @@ spec:
   replicas: {{ .Values.replicaCount}}
   selector:
     matchLabels:
-      app: {{ .Release.Name}}
+      app: {{ .Release.Name}}-beckend
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
+        app: {{ .Release.Name}}-beckend
     spec:
       containers:
-        - name: {{ .Release.Name }}
+        - name: {{ .Release.Name}}-beckend
           image: {{ .Values.image.repository }}
           ports:
             - containerPort: 80
