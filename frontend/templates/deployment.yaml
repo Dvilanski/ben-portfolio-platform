@@ -26,8 +26,9 @@ spec:
               readOnly: true
       volumes:
         - configMap:
+          name: nginx-conf-vol
             name: nginx-conf
             items:
               - key: nginx.conf
                 path: nginx.conf
-            name: nginx-conf-vol
+          
