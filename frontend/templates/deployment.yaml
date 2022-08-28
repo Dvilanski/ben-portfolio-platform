@@ -20,15 +20,16 @@ spec:
           ports:
             - containerPort: 80
           volumeMounts:
-            - name: nginx-config-vol
-              mountPath: /etc/nginx/nginx.conf
-              subPath: nginx.conf
-              readOnly: true
+          - name: nginx-volume
+            mountPath: /etc/nginx/nginx.conf
+            subPath: nginx.conf
+            readOnly: true
       volumes:
-        name: nginx-conf-vol
-        - configMap:
-            name: nginx-conf
-            items:
-              - key: nginx.conf
-                path: nginx.conf
+      # https://medium.com/swlh/quick-fix-mounting-a-configmap-to-an-existing-volume-in-kubernetes-using-rancher-d01c472a10ad
+      - configMap:
+          name: nginx-conf
+          items:
+          - key: nginx.conf
+            path: nginx.conf
+        name: nginx-volume
           
