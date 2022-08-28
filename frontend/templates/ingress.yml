@@ -22,7 +22,7 @@ spec:
             path: "/"
             backend:
               service:
-                name: {{ .Release.Name }}
+                name: ben-todo-frontend
                 port:
                   number: {{ .Values.service.port }}  
 {{- end -}}
