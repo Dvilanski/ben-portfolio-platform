@@ -19,4 +19,15 @@ spec:
           image: {{ .Values.image.repository }}
           ports:
             - containerPort: 80
-          
+          volumeMounts:
+            - name: nginx-config-vol
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+              readOnly: true
+      volumes:
+        - configMap:
+          name: nginx_conf
+          items:
+            - key: nginx.conf
+              path: nginx.conf
+          name: nginx-conf-vol
