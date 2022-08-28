@@ -21,7 +21,7 @@ spec:
             - containerPort: 80
           volumeMounts:
           - name: nginx-volume
-            mountPath: /etc/nginx/nginx.conf
+            mountPath: /etc/nginx/
             subPath: nginx.conf
             readOnly: true
       volumes:
