@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ben-todo-frontend
+  name: "todo-app"
   labels:
-    app: ben-todo-frontend
+    app: todo-frontend
 spec:
   replicas: {{ .Values.replicaCount}}
   selector:
@@ -21,7 +21,7 @@ spec:
             - containerPort: 80
           volumeMounts:
           - name: nginx-volume
-            mountPath: /etc/nginx/
+            mountPath: /etc/nginx/nginx.conf
             subPath: nginx.conf
             readOnly: true
       volumes:
