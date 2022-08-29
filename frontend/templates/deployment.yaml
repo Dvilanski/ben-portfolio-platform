@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ben-todo-frontend
   labels:
-    app: {{ .Release.Name }}
+    app: todo-frontend
 spec:
   replicas: {{ .Values.replicaCount}}
   selector:
@@ -19,7 +19,7 @@ spec:
           image: {{ .Values.image.repository }}
           tag: 
           ports:
-            - containerPort: 80
+            - containerPort: {{ .Values.service.targetPort}}
           volumeMounts:
           - name: nginx-volume
             mountPath: /etc/nginx/nginx.conf
