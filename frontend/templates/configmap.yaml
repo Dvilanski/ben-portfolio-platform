@@ -10,13 +10,13 @@ data:
             listen 80 default_server;
             include mime.types;
 
-            location / {
+            location /static {
                 root /usr/share/nginx/html;
 
-                try_files index.html index $uri $uri/;
+                try_files index.html index $uri $uri/ @server;
             }
 
-            location /api {
+            location @server {
                 proxy_pass         http://ben-todo-backend;
                 proxy_redirect     off;
 
