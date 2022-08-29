@@ -5,13 +5,10 @@ metadata:
   name: frontend-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
   labels:
     name: frontend
-  Ingress Class: nginx
+
 spec:
-  
   rules:
     - host: ben-todo.ddns.net
       http:
