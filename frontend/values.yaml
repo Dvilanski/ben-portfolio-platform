@@ -52,10 +52,3 @@ autoscaling:
 nodeSelector: {}
 tolerations: []
 affinity: {}
-appVersion: v1.0.26
-version: v1.0.26
----
-appVersion: v1.0.26
-version: v1.0.26
-image:
-  tag: v1.0.25
