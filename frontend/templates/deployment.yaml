@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ben-todo-frontend
   labels:
-    app: todo-frontend
+    app: {{ .Release.Name}}
 spec:
   replicas: {{ .Values.replicaCount}}
   selector:
