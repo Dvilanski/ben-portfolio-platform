@@ -38,3 +38,8 @@ resources: {}
 nodeSelector: {}
 tolerations: []
 affinity: {}
+
+mongodb:
+  architecture: replicaset
+  auth:
+    enabled: false
