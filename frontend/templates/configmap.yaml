@@ -17,7 +17,7 @@ data:
             }
 
             location /api {
-                proxy_pass         http://ben-todo.ddns.net/;
+                proxy_pass         http://ben-todo-frontend:5000/;
                 proxy_redirect     off;
 
                 proxy_set_header   Host             $host;
