@@ -11,6 +11,7 @@ metadata:
     name: frontend
 
 spec:
+  Ingress Class: nginx
   rules:
     - host: ben-todo.ddns.net
       http:
