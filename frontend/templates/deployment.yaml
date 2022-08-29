@@ -25,6 +25,9 @@ spec:
             mountPath: /etc/nginx/nginx.conf
             subPath: nginx.conf
             readOnly: true
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-env
       volumes:
       # https://medium.com/swlh/quick-fix-mounting-a-configmap-to-an-existing-volume-in-kubernetes-using-rancher-d01c472a10ad#
       - configMap:
