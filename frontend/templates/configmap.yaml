@@ -17,7 +17,7 @@ data:
             }
 
             location @server {
-                proxy_pass         http://ben-todo.ddns.net;
+                proxy_pass         http://ben-todo-backend;
                 proxy_redirect     off;
 
                 proxy_set_header   Host             $host;
