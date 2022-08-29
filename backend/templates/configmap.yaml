@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-env
+  namespace: default
+data:
+  MONGODB_URI: mongodb://{{ .Release.Name }}-mongodb-headless.default.svc.cluster.local:27017
