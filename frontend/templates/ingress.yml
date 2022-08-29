@@ -9,14 +9,13 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
   labels:
     name: frontend
-
 spec:
   rules:
     - host: ben-todo.ddns.net
       http:
         paths:
           - pathType: Prefix
-            path: "/"
+            path: "/todo"
             backend:
               service:
                 name: ben-todo-frontend
