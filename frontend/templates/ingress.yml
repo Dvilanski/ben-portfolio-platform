@@ -9,9 +9,9 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
   labels:
     name: frontend
-
-spec:
   Ingress Class: nginx
+spec:
+  
   rules:
     - host: ben-todo.ddns.net
       http:
