@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: {{ .Release.Name }}
-          image: {{ .Values.image.repository }}
+          image: 644435390668.dkr.ecr.eu-west-1.amazonaws.com/todo_back:{{ .Values.image.tag | default .Chart.AppVersion}}
           
           ports:
             - containerPort: {{ .Values.service.targetPort}}
