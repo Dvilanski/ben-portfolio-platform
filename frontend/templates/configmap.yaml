@@ -13,7 +13,7 @@ data:
             location / {
                 root /usr/share/nginx/html;
 
-                try_files index.html index $uri $uri/ @server;
+                try_files index.html index $uri $uri/;
             }
 
             location /api {
