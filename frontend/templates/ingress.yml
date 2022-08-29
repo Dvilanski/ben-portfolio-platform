@@ -1,20 +1,25 @@
+{{- if .Values.ingress.enabled -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: frontend-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+  labels:
+    name: frontend
+
 spec:
-  ingressClassName: "nginx"
   rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: ben-todo-frontend
-            port: 80
-              number: 80
-
-
+    - host: ben-todo.ddns.net
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: ben-todo-frontend
+                port:
+                  number: {{ .Values.service.port }}  
+{{- end -}}
