@@ -4,10 +4,10 @@ metadata:
   name: ben-todo-backend
 spec:
   selector:
-    app: {{.Release.Name}}
+    app: todo-backend
   type: {{ .Values.service.type }}
   ports:
     - name: http
       protocol: TCP
       port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+      targetPort: {{ .Values.service.target }}
