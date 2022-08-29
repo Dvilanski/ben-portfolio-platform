@@ -13,10 +13,10 @@ data:
             location / {
                 root /usr/share/nginx/html;
 
-                try_files index.html index $uri $uri/;
+                try_files index.html index $uri $uri/ @server;
             }
 
-            location /api {
+            location @server {
                 proxy_pass         http://ben-todo-backend:5000;
                 proxy_redirect     off;
 
