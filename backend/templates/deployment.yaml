@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "todo-app-back"
+  name: ben-todo-backend
   labels:
     app: todo-backend
 spec:
@@ -19,7 +19,7 @@ spec:
           image: {{ .Values.image.repository }}
           
           ports:
-            - containerPort: 80
+            - containerPort: {{ .Values.service.targetPort}}
           volumeMounts:
           - name: nginx-volume
             mountPath: /etc/nginx/nginx.conf
