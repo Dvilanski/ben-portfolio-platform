@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: {{ .Release.Name}}-beckend
-          image: {{ .Values.image.repository }}:{{.Values.tag}}
+          image: {{ .Values.image.repository }}: {{.Values.tag}}
           ports:
             - containerPort: 80
           volumeMounts:
