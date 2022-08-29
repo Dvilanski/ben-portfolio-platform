@@ -8,7 +8,7 @@ image:
   repository: 644435390668.dkr.ecr.eu-west-1.amazonaws.com/todo_front
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "v1.0.21"
 
 imagePullSecrets: []
 nameOverride: "todo-app"
