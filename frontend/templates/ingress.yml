@@ -15,7 +15,7 @@ spec:
       http:
         paths:
           - pathType: Prefix
-            path: "/todo"
+            path: "/"
             backend:
               service:
                 name: ben-todo-frontend
