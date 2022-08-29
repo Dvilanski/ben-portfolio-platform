@@ -4,4 +4,5 @@ metadata:
   name: {{ .Release.Name }}-env
   namespace: default
 data:
-  MONGODB_URI: mongodb://{{ .Release.Name }}-mongodb-headless.default.svc.cluster.local:27017
+  #MONGODB_URI: mongodb://{{ .Release.Name }}-mongodb-headless.default.svc.cluster.local:27017
+  MONGODB_URI: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb-headless:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb-headless:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb-headless:27017/?authSource=admin&replicaSet=rs0
