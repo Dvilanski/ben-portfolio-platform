@@ -7,7 +7,6 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    name: "todo-backend"
     namespace: default
     server: "https://kubernetes.default.svc"
   source:
@@ -15,8 +14,15 @@ spec:
     repoURL: "git@github.com:Dvilanski/ben-portfolio-platform.git"
     targetRevision: HEAD
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+        replicaCount: 2
+        repository: 644435390668.dkr.ecr.eu-west-1.amazonaws.com/todo_back
+        mongodb:
+        architecture: replicaset
+        auth:
+          enabled: false
+        arbiter:
+          enabled: false
   project: default
   syncPolicy:
     automated:

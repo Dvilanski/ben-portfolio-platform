@@ -7,7 +7,6 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    name: "todo-front"
     namespace: default
     server: "https://kubernetes.default.svc"
   source:
@@ -15,8 +14,13 @@ spec:
     repoURL: "git@github.com:Dvilanski/ben-portfolio-platform.git"
     targetRevision: HEAD
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+        replicaCount: 2
+        ingress:
+          enabled: ture
+        service:
+          port:80
+          targetPort:80
   project: default
   syncPolicy:
     automated:
