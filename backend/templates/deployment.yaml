@@ -17,14 +17,8 @@ spec:
       containers:
         - name: {{ .Release.Name }}
           image: 644435390668.dkr.ecr.eu-west-1.amazonaws.com/todo_back:{{ .Values.image.tag | default .Chart.AppVersion}}
-          
           ports:
             - containerPort: {{ .Values.service.targetPort}}
-          volumeMounts:
-          - name: nginx-volume
-            mountPath: /etc/nginx/nginx.conf
-            subPath: nginx.conf
-            readOnly: true
           envFrom:
             - configMapRef:
                 name: {{ .Release.Name }}-env
